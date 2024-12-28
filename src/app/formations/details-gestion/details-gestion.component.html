@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>{{formationD?.titre}}</h1>
+  <p>{{formationD?.description}}</p>
+  <p><strong>Charge horaire :</strong> {{formationD?.chargeHoraire}} heures</p>
+
+  <h3>Sessions à venir</h3>
+  <ul>
+    <li *ngFor="let session of formationD?.sessions; let i = index">
+      <strong>Formateur :</strong> {{session?.formateur}} <br />
+      <strong>Dates :</strong> {{session?.dateDebut}} - {{session?.dateFin}} <br />
+      
+     
+      <p>Participants actuels: {{ session?.participants }} / {{ formationD?.maxP }}</p>
+
+      
+      <button *ngIf="session?.participants < formationD?.maxP" 
+              class="btn btn-success" 
+              (click)="incrementParticipants(session)" routerLink="/inseco" routerLinkActive="router-link-active" >
+        S'inscrire
+      </button>
+
+      
+      <button *ngIf="session?.participants >= formationD?.maxP" 
+              class="btn btn-secondary" 
+              disabled>
+        Formation complète
+      </button>
+    </li>
+  </ul>
+  
+  <br>
+  <a class="btn btn-primary" href="../assets/f4.pdf" target="_blank" >Voir le programme (PDF)</a>
+</div>

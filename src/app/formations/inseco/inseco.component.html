@@ -1,0 +1,47 @@
+<div class="inseco-container">
+    <h2>Inscription pour Inseco</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">Prénom</label>
+        <input
+          id="firstName"
+          class="form-control"
+          [(ngModel)]="firstName"
+          name="firstName"
+          placeholder="Entrez votre prénom"
+          required
+        />
+        <div *ngIf="firstName && firstName.length < 2" class="error">Le prénom doit comporter au moins 2 caractères.</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Nom</label>
+        <input
+          id="lastName"
+          class="form-control"
+          [(ngModel)]="lastName"
+          name="lastName"
+          placeholder="Entrez votre nom"
+          required
+        />
+        <div *ngIf="lastName && lastName.length < 2" class="error">Le nom doit comporter au moins 2 caractères.</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          class="form-control"
+          [(ngModel)]="email"
+          name="email"
+          type="email"
+          placeholder="Entrez votre email"
+          required
+        />
+        <div *ngIf="email && !email.includes('@')" class="error">L'email doit être valide.</div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!firstName || !lastName || !email" [routerLink]="['/details-economie']" routerLinkActive="router-link-active" >S'inscrire</button>
+    </form>
+  </div>
+  

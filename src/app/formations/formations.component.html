@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <h1>Recherche de Formations</h1>
+  
+    <div class="mb-3">
+      <label for="search" class="form-label">Rechercher une formation</label>
+      <input type="text" class="form-control" id="search" placeholder="Entrez des mots-clés" (input)="searchFormations()">
+    </div>
+  
+    <div id="formations-list">
+      <h2>Liste des formations</h2>
+      <ul id="formations-results" class="list-group">
+        <li *ngFor="let formation of filteredFormations" class="list-group-item">
+          <h5>{{ formation.title }}</h5>
+          <p>{{ formation.description }}</p>
+          <a [routerLink]="formation.link" class="btn btn-primary">Voir Détails</a>
+        </li>
+        <li *ngIf="filteredFormations.length === 0" class="list-group-item">Aucune formation trouvée</li>
+      </ul>
+    </div>
+  </div>
+  
