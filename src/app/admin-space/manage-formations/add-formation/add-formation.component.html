@@ -1,1 +1,23 @@
-<p>add-formation works!</p>
+<div class="container">
+    <h1>Ajouter une Formation</h1>
+  
+    <form #formationForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="titre" class="form-label">Titre</label>
+        <input type="text" class="form-control" id="titre" [(ngModel)]="formation.titre" name="titre" required />
+      </div>
+  
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" [(ngModel)]="formation.description" name="description" required />
+      </div>
+  
+      <div class="mb-3">
+        <label for="chargeHoraire" class="form-label">Charge Horaire</label>
+        <input type="number" class="form-control" id="chargeHoraire" [(ngModel)]="formation.chargeHoraire" name="chargeHoraire" required />
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!formationForm.valid">Ajouter</button>
+    </form>
+  </div>
+  

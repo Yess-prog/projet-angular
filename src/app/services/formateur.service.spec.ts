@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FormateurService } from './formateur.service';
+import { TrainerService } from './formateur.service';
 
 describe('FormateurService', () => {
-  let service: FormateurService;
+  let service: TrainerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FormateurService);
+    service = TestBed.inject(TrainerService);
   });
 
   it('should be created', () => {

@@ -9,17 +9,16 @@
       <strong>Formateur :</strong> {{session?.formateur}} <br />
       <strong>Dates :</strong> {{session?.dateDebut}} - {{session?.dateFin}} <br />
       
-     
       <p>Participants actuels: {{ session?.participants }} / {{ formationD?.maxP }}</p>
 
-      
       <button *ngIf="session?.participants < formationD?.maxP" 
-              class="btn btn-success" 
-              (click)="incrementParticipants(session)" routerLink="/inseco" routerLinkActive="router-link-active" >
-        S'inscrire
-      </button>
+        class="btn btn-success" 
+        (click)="incrementParticipants(session)" 
+        routerLinkActive="router-link-active">
+    S'inscrire
+</button>
 
-      
+
       <button *ngIf="session?.participants >= formationD?.maxP" 
               class="btn btn-secondary" 
               disabled>

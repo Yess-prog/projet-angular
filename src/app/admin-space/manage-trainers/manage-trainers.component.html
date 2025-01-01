@@ -1,1 +1,37 @@
-<p>manage-trainers works!</p>
+<div class="container mt-5">
+    <h1>Gestion des Formateurs</h1>
+  
+    <div class="mb-3">
+      <a routerLink="add" class="btn btn-primary">Ajouter un formateur</a>
+    </div>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prénom</th>
+          <th scope="col">Email</th>
+          <th scope="col">Spécialisation</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trainer of trainers; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ trainer.nom }}</td>
+          <td>{{ trainer.prenom }}</td>
+          <td>{{ trainer.email }}</td>
+          <td>{{ trainer.specialization }}</td>
+          <td>
+            <a [routerLink]="['modify', trainer.id]" class="btn btn-warning btn-sm">Modifier</a>
+            <button (click)="deleteTrainer(trainer.id)" class="btn btn-danger btn-sm">Supprimer</button>
+          </td>
+        </tr>
+        <tr *ngIf="trainers.length === 0">
+          <td colspan="6" class="text-center">Aucun formateur trouvé</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

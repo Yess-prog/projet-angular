@@ -2,10 +2,11 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormationsComponent } from '../formations.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-details-informatique',
   standalone: true,
-  imports: [NgFor,RouterLink,NgIf],
+  imports: [NgFor, NgIf],
   templateUrl: './details-informatique.component.html',
   styleUrls: ['./details-informatique.component.css']
 })
@@ -20,10 +21,16 @@ export class DetailsInformatiqueComponent extends FormationsComponent {
     ],
     maxP: super.getMaxP("info"),
   };
+  constructor(private router: Router) {
+    super();
+  }
   override incrementParticipants(session: any): void {
-    if (session.participants < !this.formationD.maxP) {
+    if (session && session.participants < this.formationD?.maxP) {
       session.participants++;
-      super.incrementParticipants("info");
+      this.router.navigate(['/inseco']);
+    } else {
+      alert('Formation complète. Inscription impossible.');
     }
   }
+  
 }

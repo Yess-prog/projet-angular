@@ -41,7 +41,7 @@
         <div *ngIf="email && !email.includes('@')" class="error">L'email doit être valide.</div>
       </div>
   
-      <button type="submit" class="btn btn-primary" [disabled]="!firstName || !lastName || !email" [routerLink]="['/details-economie']" routerLinkActive="router-link-active" >S'inscrire</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!firstName || !lastName || !email" [routerLink]="['../formations']" routerLinkActive="router-link-active" >S'inscrire</button>
     </form>
   </div>
   

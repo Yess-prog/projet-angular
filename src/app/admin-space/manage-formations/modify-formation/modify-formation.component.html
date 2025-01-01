@@ -1,1 +1,26 @@
-<p>modify-formation works!</p>
+<div class="container">
+    <h1>Modifier la Formation</h1>
+  
+    <form #formationForm="ngForm" (ngSubmit)="onSubmit()">
+      <input type="hidden" [(ngModel)]="formation.id" name="id" />
+  
+      <div class="mb-3">
+        <label for="titre" class="form-label">Titre</label>
+        <input type="text" class="form-control" id="titre" [(ngModel)]="formation.titre" name="titre" required />
+      </div>
+  
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" [(ngModel)]="formation.description" name="description" required />
+      </div>
+  
+      <div class="mb-3">
+        <label for="chargeHoraire" class="form-label">Charge Horaire</label>
+        <input type="number" class="form-control" id="chargeHoraire" [(ngModel)]="formation.chargeHoraire" name="chargeHoraire" required />
+      </div>
+  
+      <button type="submit" class="btn btn-success" [disabled]="!formationForm.valid">Enregistrer</button>
+      <a routerLink="/admin-space/manage-formations" class="btn btn-secondary ms-2">Annuler</a>
+    </form>
+  </div>
+  

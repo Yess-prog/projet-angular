@@ -1,1 +1,36 @@
-<p>manage-candidates works!</p>
+<div class="container mt-5">
+    <h1>Gestion des Candidats</h1>
+    
+    <div class="mb-3">
+      <a routerLink="add" class="btn btn-primary">Ajouter un candidat</a>
+    </div>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prénom</th>
+          <th scope="col">Email</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let candidate of candidates; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ candidate.nom }}</td>
+          <td>{{ candidate.prenom }}</td>
+          <td>{{ candidate.email }}</td>
+          <td>
+            <a [routerLink]="['modify', candidate.id]" class="btn btn-warning btn-sm">Modifier</a>
+            
+            <button (click)="deleteCandidate(candidate.id)" class="btn btn-danger btn-sm">Supprimer</button>
+          </td>
+        </tr>
+        <tr *ngIf="candidates.length === 0">
+          <td colspan="5" class="text-center">Aucun candidat trouvé</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

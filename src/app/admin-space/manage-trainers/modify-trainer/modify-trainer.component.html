@@ -1,1 +1,35 @@
-<p>modify-trainer works!</p>
+<div class="container">
+    <h1>Modifier un Formateur</h1>
+  
+    <form #trainerForm="ngForm" (ngSubmit)="onSubmit()">
+      <input type="hidden" [(ngModel)]="trainer.id" name="id" />
+  
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="nom" [(ngModel)]="trainer.nom" name="nom" required />
+      </div>
+  
+      <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom</label>
+        <input type="text" class="form-control" id="prenom" [(ngModel)]="trainer.prenom" name="prenom" required />
+      </div>
+  
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="trainer.email" name="email" required />
+      </div>
+  
+      <div class="mb-3">
+        <label for="specialization" class="form-label">Spécialisation</label>
+        <input type="text" class="form-control" id="specialization" [(ngModel)]="trainer.specialization" name="specialization" required />
+      </div>
+  
+      <div class="mb-3">
+        <label for="telephone" class="form-label">Téléphone</label>
+        <input type="tel" class="form-control" id="telephone" [(ngModel)]="trainer.telephone" name="telephone" />
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!trainerForm.form.valid">Enregistrer les modifications</button>
+    </form>
+  </div>
+  

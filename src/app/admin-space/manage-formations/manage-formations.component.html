@@ -1,1 +1,35 @@
-<p>manage-formations works!</p>
+<div class="container mt-5">
+    <h1>Gestion des Formations</h1>
+  
+    <div class="mb-3">
+      <a routerLink="add" class="btn btn-primary">Ajouter une formation</a>
+    </div>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titre</th>
+          <th scope="col">Description</th>
+          <th scope="col">Charge Horaire</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let formation of formations; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ formation.titre }}</td>
+          <td>{{ formation.description }}</td>
+          <td>{{ formation.chargeHoraire }} heures</td>
+          <td>
+            <a [routerLink]="['modify', formation.id]" class="btn btn-warning btn-sm">Modifier</a>
+            <button (click)="deleteFormation(formation.id)" class="btn btn-danger btn-sm">Supprimer</button>
+          </td>
+        </tr>
+        <tr *ngIf="formations.length === 0">
+          <td colspan="5" class="text-center">Aucune formation trouvée</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,1 +1,20 @@
-<p>add-candidate works!</p>
+<form #candidateForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="nom" class="form-label">Nom</label>
+    <input type="text" class="form-control" id="nom" [(ngModel)]="candidate.nom" name="nom" required />
+  </div>
+
+  <div class="mb-3">
+    <label for="prenom" class="form-label">Prénom</label>
+    <input type="text" class="form-control" id="prenom" [(ngModel)]="candidate.prenom" name="prenom" required />
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" [(ngModel)]="candidate.email" name="email" required />
+  </div>
+
+  
+
+  <button type="submit" class="btn btn-primary" [disabled]="!candidateForm.valid">Ajouter</button>
+</form>
