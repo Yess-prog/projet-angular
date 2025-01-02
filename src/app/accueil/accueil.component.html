@@ -16,14 +16,20 @@
   <section id="formations" class="container mt-5">
     <h2>Catégories de Formations</h2>
     <p>Nous offrons des formations dans les catégories suivantes :</p>
-    <ul class="list-group">
-      <li class="list-group-item">Technologies Informatique: Formation en Développement logiciel, cybersécurité, etc.</li>
-      <li class="list-group-item">Gestion et Administration : Formation en gestion des affaires, marketing, management, etc.</li>
-      <li class="list-group-item">Mécanique et Maintenance : Formation en Maintenance des machines industrielles, génie mécanique, etc.</li>
-      <li class="list-group-item">Électricité et Électronique : Formation en Systèmes électriques, circuits électroniques, etc.'</li>
-      <li class="list-group-item">Économie et Finance : Formation en Microéconomie, macroéconomie, économie internationale, etc. </li>
-      <li class="list-group-item">Techniques de Production : Formation en Gestion de la production, gestion de la chaîne logistique, etc.</li>
-    </ul>
+    <table class="table table-striped">
+      <tr class="" >
+        <th>#</th>
+        <th>Titre</th>
+        <th>Description</th>
+      </tr>
+    
+    <tr class="" *ngFor="let formation of formations; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+        <td>{{ formation.titre}}</td>
+        <td>{{ formation.description }}</td>
+        
+        
+    </tr></table>
     
   </section>
 

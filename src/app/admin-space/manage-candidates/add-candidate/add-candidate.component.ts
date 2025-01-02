@@ -26,7 +26,7 @@ export class AddCandidateComponent {
 
   onSubmit(): void {
     if (this.candidate.nom && this.candidate.prenom && this.candidate.email && this.candidate.cin && this.candidate.mdp) {
-      this.candidatService.addCandidate(this.candidate).subscribe(() => {
+      this.candidatService.addCandidat(this.candidate).subscribe(() => {
         console.log('Candidate added:', this.candidate);
         this.router.navigate(['/admin-space/manage-candidates']);
       });

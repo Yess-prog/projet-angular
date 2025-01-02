@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ModifyCandidateComponent implements OnInit {
   candidat: candidat = {
-    id: null,
+    id: undefined,
     nom: '',
     prenom: '',
     email: '',
@@ -29,20 +29,20 @@ export class ModifyCandidateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const candidateId = +this.route.snapshot.paramMap.get('id')!;
-    this.fetchCandidateDetails(candidateId);
+    const candidatId = +this.route.snapshot.paramMap.get('id')!;
+    this.fetchCandidatDetails(candidatId);
   }
 
-  fetchCandidateDetails(id: number): void {
-    const candidate = this.candidatService.getCandidateById(id);
-    if (candidate) {
-      this.candidat = candidate;
+  fetchCandidatDetails(id: number): void {
+    const candidati = this.candidatService.getCandidatById(id);
+    if (candidati) {
+      this.candidat = candidati;
     }
   }
 
   onSubmit(): void {
     if (this.candidat.id !== null) {
-      this.candidatService.updateCandidate(this.candidat.id, this.candidat);
+      this.candidatService.updateCandidat(this.candidat.id, this.candidat);
       this.router.navigate(['/admin-space/manage-candidates']);
     }
   }

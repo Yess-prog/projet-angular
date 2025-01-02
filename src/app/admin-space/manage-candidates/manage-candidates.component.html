@@ -19,38 +19,38 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let candidate of candidates; let i = index">
+      <tr *ngFor="let candidat of candidats; let i = index">
         <th scope="row">{{ i + 1 }}</th>
-        <td>{{ candidate.nom }}</td>
-        <td>{{ candidate.prenom }}</td>
-        <td>{{ candidate.email }}</td>
-        <td>{{ candidate.cin }}</td>
-        <td>{{ candidate.mdp }}</td>
+        <td>{{ candidat.nom }}</td>
+        <td>{{ candidat.prenom }}</td>
+        <td>{{ candidat.email }}</td>
+        <td>{{ candidat.cin }}</td>
+        <td>{{ candidat.mdp }}</td>
         <td>
           <img
-            *ngIf="candidate.photo"
-            [src]="candidate.photo"
+            *ngIf="candidat.photo"
+            [src]="candidat.photo"
             alt="Photo"
             class="img-thumbnail"
             style="max-width: 100px;"
           />
-          <span *ngIf="!candidate.photo">Pas de photo</span>
+          <span *ngIf="!candidat.photo">Pas de photo</span>
         </td>
         <td>
           <a
-            [routerLink]="['modify', candidate.id]"
+            [routerLink]="['modify', candidat.id]"
             class="btn btn-warning btn-sm"
             >Modifier</a
           >
           <button
-            (click)="deleteCandidate(candidate.id)"
+            (click)="deleteCandidat(candidat.id)"
             class="btn btn-danger btn-sm"
           >
             Supprimer
           </button>
         </td>
       </tr>
-      <tr *ngIf="candidates.length === 0">
+      <tr *ngIf="candidats.length === 0">
         <td colspan="8" class="text-center">Aucun candidat trouvé</td>
       </tr>
     </tbody>

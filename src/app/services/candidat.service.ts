@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class CandidatService {
-  private candidates: candidat[] = [
+  private candidats: candidat[] = [
     {
       id: 1, nom: 'Werghmi', prenom: 'Ahmed', email: 'Ahmed.We@gmail.com',
       cin: 1000000,
@@ -39,7 +39,7 @@ export class CandidatService {
     },
   ];
 
-  private candidatesSubject = new BehaviorSubject<candidat[]>(this.candidates);
+  private candidatesSubject = new BehaviorSubject<candidat[]>(this.candidats);
   constructor() {
     
     this.loadPhotos();
@@ -55,14 +55,14 @@ export class CandidatService {
 
     ];
 
-    for (let i = 0; i < this.candidates.length; i++) {
+    for (let i = 0; i < this.candidats.length; i++) {
       const path = photoPaths[i];
       if (path) {
-        this.candidates[i].photo = await this.loadImageData(path);
+        this.candidats[i].photo = await this.loadImageData(path);
       }
     }
 
-    this.candidatesSubject.next([...this.candidates]);
+    this.candidatesSubject.next([...this.candidats]);
   }
 
 
@@ -86,35 +86,35 @@ export class CandidatService {
     });
   }
 
-  getCandidates(): Observable<candidat[]> {
+  getCandidats(): Observable<candidat[]> {
     return this.candidatesSubject.asObservable();
   }
 
-  getCandidateById(id: number): candidat | undefined {
-    return this.candidates.find((candidate) => candidate.id === id);
+  getCandidatById(id: number): candidat | undefined {
+    return this.candidats.find((candidate) => candidate.id === id);
   }
 
-  updateCandidate(id: number, updatedCandidate: candidat): void {
-    const index = this.candidates.findIndex((c) => c.id === id);
+  updateCandidat(id: number, updatedCandidate: candidat): void {
+    const index = this.candidats.findIndex((c) => c.id === id);
     if (index !== -1) {
-      this.candidates[index] = updatedCandidate;
-      this.candidatesSubject.next([...this.candidates]); 
+      this.candidats[index] = updatedCandidate;
+      this.candidatesSubject.next([...this.candidats]); 
     } else {
       console.error('Candidate not found with ID:', id);
     }
   }
 
-  addCandidate(candidate: candidat): Observable<candidat> {
-    this.candidates.push(candidate);
-    this.candidatesSubject.next([...this.candidates]); 
-    return of(candidate);
+  addCandidat(candidat: candidat): Observable<candidat> {
+    this.candidats.push(candidat);
+    this.candidatesSubject.next([...this.candidats]); 
+    return of(candidat);
   }
 
-  deleteCandidate(id: number): Observable<void> {
-    const index = this.candidates.findIndex((candidate) => candidate.id === id);
+  deleteCandidat(id: number): Observable<void> {
+    const index = this.candidats.findIndex((candidate) => candidate.id === id);
     if (index !== -1) {
-      this.candidates.splice(index, 1); 
-      this.candidatesSubject.next([...this.candidates]); 
+      this.candidats.splice(index, 1); 
+      this.candidatesSubject.next([...this.candidats]); 
       return of(void 0); 
     } else {
       console.error('Candidate not found with ID:', id);

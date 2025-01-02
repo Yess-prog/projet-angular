@@ -11,24 +11,24 @@ import { NgFor, NgIf } from '@angular/common';
   imports:[RouterLink,NgIf,NgFor]
 })
 export class ManageCandidatesComponent implements OnInit {
-  candidates: candidat[] = [];
+  candidats: candidat[] = [];
 
   constructor(private candidatService: CandidatService) {}
 
   ngOnInit(): void {
-    this.loadCandidates();
+    this.loadCandidats();
   }
 
-  loadCandidates(): void {
-    this.candidatService.getCandidates().subscribe((candidates: candidat[]) => {
-      this.candidates = candidates;
+  loadCandidats(): void {
+    this.candidatService.getCandidats().subscribe((candidats: candidat[]) => {
+      this.candidats = candidats;
     });
   }
 
-  deleteCandidate(id: number): void {
-    this.candidatService.deleteCandidate(id).subscribe(() => {
+  deleteCandidat(id: number): void {
+    this.candidatService.deleteCandidat(id).subscribe(() => {
      
-      this.loadCandidates();
+      this.loadCandidats();
     });
   }
 }
