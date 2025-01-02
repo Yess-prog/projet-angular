@@ -17,7 +17,9 @@ export class AddCandidateComponent {
     nom: '',
     prenom: '',
     email: '',
-    
+    cin: 0,
+    mdp: '',
+    photo: undefined
   };
 
   constructor(private candidatService: CandidatService, private router: Router) {}
