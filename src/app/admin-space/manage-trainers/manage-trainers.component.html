@@ -1,37 +1,46 @@
 <div class="container mt-5">
-    <h1>Gestion des Formateurs</h1>
-  
-    <div class="mb-3">
-      <a routerLink="add" class="btn btn-primary">Ajouter un formateur</a>
-    </div>
-  
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Prénom</th>
-          <th scope="col">Email</th>
-          <th scope="col">Spécialisation</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let trainer of trainers; let i = index">
-          <th scope="row">{{ i + 1 }}</th>
-          <td>{{ trainer.nom }}</td>
-          <td>{{ trainer.prenom }}</td>
-          <td>{{ trainer.email }}</td>
-          <td>{{ trainer.specialization }}</td>
-          <td>
-            <a [routerLink]="['modify', trainer.id]" class="btn btn-warning btn-sm">Modifier</a>
-            <button (click)="deleteTrainer(trainer.id)" class="btn btn-danger btn-sm">Supprimer</button>
-          </td>
-        </tr>
-        <tr *ngIf="trainers.length === 0">
-          <td colspan="6" class="text-center">Aucun formateur trouvé</td>
-        </tr>
-      </tbody>
-    </table>
+  <h1>Gestion des Formateurs</h1>
+
+  <div class="mb-3">
+    <a routerLink="add" class="btn btn-primary">Ajouter un formateur</a>
   </div>
-  
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Spécialisation</th>
+        <th scope="col">Photo</th>
+        <th scope="col">CV</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trainer of trainers; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ trainer.nom }}</td>
+        <td>{{ trainer.prenom }}</td>
+        <td>{{ trainer.email }}</td>
+        <td>{{ trainer.specialization }}</td>
+        <td>
+          <img *ngIf="trainer.photo" [src]="trainer.photo" alt="Trainer Photo" class="img-thumbnail" width="50" height="50">
+          <span *ngIf="!trainer.photo">pas de Photo</span>
+        </td>
+        <td>
+          <a *ngIf="trainer.cv" [href]="trainer.cv" target="_blank">Voir CV</a>
+          <span *ngIf="!trainer.cv">pas de CV</span>
+        </td>
+        <td>
+          <a [routerLink]="['modify', trainer.id]" class="btn btn-warning btn-sm">Modifier</a>
+          <button (click)="deleteTrainer(trainer.id)" class="btn btn-danger btn-sm">Supprimer</button>
+        </td>
+      </tr>
+      <tr *ngIf="trainers.length === 0">
+        <td colspan="8" class="text-center">Aucun formateur trouvé</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

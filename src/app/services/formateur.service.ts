@@ -7,12 +7,42 @@ import { Observable, of } from "rxjs";
 })
 export class TrainerService {
   trainers: Trainer[] = [
-    { id: 1, nom: 'Boolares', prenom: 'Loujayn', email: 'l.b@gmail.com', specialization: 'économie' },
-    { id: 2, nom: 'Dhrif', prenom: 'Hatem', email: 'Hatem.D@iset-r.tn.com', specialization: 'électrique' },
-    { id: 3, nom: 'Laarousi', prenom: 'Latifa', email: 'Latifa.Laa@yahoo.fr', specialization: 'gestion' },
-    { id: 4, nom: 'Bouajaja', prenom: 'Mariem', email: 'Mariem.Bjj@hotmail.fr', specialization: 'informatique' },
-    { id: 5, nom: 'Landolsi', prenom: 'Ahmed', email: 'Landolsi.A@iset-r.tn.com', specialization: 'mécanique' },
-    { id: 6, nom: 'Hattab', prenom: 'Ismail', email: 'Is.H@gmail.com', specialization: 'technique' },
+    {
+      id: 1, nom: 'Boolares', prenom: 'Loujayn', email: 'l.b@gmail.com', specialization: 'économie',
+      cin: 0,
+      cv: undefined,
+      photo: undefined
+    },
+    {
+      id: 2, nom: 'Dhrif', prenom: 'Hatem', email: 'Hatem.D@iset-r.tn.com', specialization: 'électrique',
+      cin: 0,
+      cv: undefined,
+      photo: undefined
+    },
+    {
+      id: 3, nom: 'Laarousi', prenom: 'Latifa', email: 'Latifa.Laa@yahoo.fr', specialization: 'gestion',
+      cin: 0,
+      cv: undefined,
+      photo: undefined
+    },
+    {
+      id: 4, nom: 'Bouajaja', prenom: 'Mariem', email: 'Mariem.Bjj@hotmail.fr', specialization: 'informatique',
+      cin: 0,
+      cv: undefined,
+      photo: undefined
+    },
+    {
+      id: 5, nom: 'Landolsi', prenom: 'Ahmed', email: 'Landolsi.A@iset-r.tn.com', specialization: 'mécanique',
+      cin: 0,
+      cv: undefined,
+      photo: undefined
+    },
+    {
+      id: 6, nom: 'Hattab', prenom: 'Ismail', email: 'Is.H@gmail.com', specialization: 'technique',
+      cin: 0,
+      cv: undefined,
+      photo: undefined
+    },
   ];
 
   getTrainers(): Observable<Trainer[]> {

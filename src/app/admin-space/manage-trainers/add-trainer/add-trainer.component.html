@@ -1,33 +1,42 @@
 <div class="container">
-    <h1>Ajouter un Formateur</h1>
-  
-    <form #trainerForm="ngForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <label for="nom" class="form-label">Nom</label>
-        <input type="text" class="form-control" id="nom" [(ngModel)]="trainer.nom" name="nom" required />
-      </div>
-  
-      <div class="mb-3">
-        <label for="prenom" class="form-label">Prénom</label>
-        <input type="text" class="form-control" id="prenom" [(ngModel)]="trainer.prenom" name="prenom" required />
-      </div>
-  
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" [(ngModel)]="trainer.email" name="email" required />
-      </div>
-  
-      <div class="mb-3">
-        <label for="specialization" class="form-label">Spécialisation</label>
-        <input type="text" class="form-control" id="specialization" [(ngModel)]="trainer.specialization" name="specialization" required />
-      </div>
-  
-      <div class="mb-3">
-        <label for="telephone" class="form-label">Téléphone</label>
-        <input type="tel" class="form-control" id="telephone" [(ngModel)]="trainer.telephone" name="telephone" />
-      </div>
-  
-      <button type="submit" class="btn btn-primary" [disabled]="!trainerForm.form.valid">Ajouter</button>
-    </form>
-  </div>
-  
+  <h1>Ajouter un Formateur</h1>
+
+  <form #trainerForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom</label>
+      <input type="text" class="form-control" id="nom" [(ngModel)]="trainer.nom" name="nom" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="prenom" class="form-label">Prénom</label>
+      <input type="text" class="form-control" id="prenom" [(ngModel)]="trainer.prenom" name="prenom" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" [(ngModel)]="trainer.email" name="email" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="specialization" class="form-label">Spécialisation</label>
+      <input type="text" class="form-control" id="specialization" [(ngModel)]="trainer.specialization" name="specialization" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="telephone" class="form-label">Téléphone</label>
+      <input type="tel" class="form-control" id="telephone" [(ngModel)]="trainer.telephone" name="telephone" />
+    </div>
+
+    <div class="mb-3">
+      <label for="cv" class="form-label">CV (PDF)</label>
+      <input type="file" class="form-control" id="cv" (change)="onFileChange($event)" />
+    </div>
+
+    <div class="mb-3">
+      <label for="photo" class="form-label">Photo</label>
+      <input type="file" class="form-control" id="photo" (change)="onFileChange($event)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!trainerForm.form.valid">Ajouter</button>
+  </form>
+</div>

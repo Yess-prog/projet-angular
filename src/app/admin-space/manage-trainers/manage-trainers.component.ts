@@ -8,7 +8,7 @@ import { NgFor, NgIf } from '@angular/common';
   selector: 'app-manage-trainers',
   templateUrl: './manage-trainers.component.html',
   styleUrls: ['./manage-trainers.component.css'],
-  imports : [RouterLink,NgFor,NgIf]
+  imports: [RouterLink, NgFor, NgIf]
 })
 export class ManageTrainersComponent implements OnInit {
   trainers: Trainer[] = [];
@@ -25,11 +25,11 @@ export class ManageTrainersComponent implements OnInit {
     });
   }
 
-   deleteTrainer(id: number): void {
+  deleteTrainer(id: number): void {
     this.trainerService.deleteTrainer(id).subscribe(
       () => {
         console.log('Trainer deleted');
-        this.trainerService.getTrainers(); 
+        this.fetchTrainers(); 
       },
       (error) => {
         console.error('Error deleting trainer', error);

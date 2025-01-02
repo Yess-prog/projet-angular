@@ -18,7 +18,10 @@ export class ModifyTrainerComponent implements OnInit {
     prenom: '',
     email: '',
     specialization: '',
-    telephone: ''
+    telephone: '',
+    cin: 0,
+    cv: undefined,
+    photo: undefined
   };
 
   constructor(

@@ -18,6 +18,10 @@ export class AddTrainerComponent {
     prenom: '',
     email: '',
     specialization: '',
+    cv: null,
+    photo: null,
+    telephone: '',
+    cin: 0
   };
 
   constructor(private trainerService: TrainerService, private router: Router) {}
@@ -32,4 +36,19 @@ export class AddTrainerComponent {
       console.error('Please fill out all required fields.');
     }
   }
+  onFileChange(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        if (event.target.id === 'cv') {
+          this.trainer.cv = reader.result as unknown as File; 
+        } else if (event.target.id === 'photo') {
+          this.trainer.photo = reader.result as unknown as ImageData; 
+        }
+      };
+    }
+  }
+  
 }
