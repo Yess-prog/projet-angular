@@ -19,13 +19,13 @@ export class AddCandidateComponent {
     email: '',
     cin: 0,
     mdp: '',
-    photo: undefined
+    photo: null, 
   };
 
   constructor(private candidatService: CandidatService, private router: Router) {}
 
   onSubmit(): void {
-    if (this.candidate.nom && this.candidate.prenom && this.candidate.email) {
+    if (this.candidate.nom && this.candidate.prenom && this.candidate.email && this.candidate.cin && this.candidate.mdp) {
       this.candidatService.addCandidate(this.candidate).subscribe(() => {
         console.log('Candidate added:', this.candidate);
         this.router.navigate(['/admin-space/manage-candidates']);
@@ -34,4 +34,17 @@ export class AddCandidateComponent {
       console.error('Please fill out all required fields.');
     }
   }
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input?.files?.length) {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.candidate.photo = reader.result as unknown as ImageData;
+      };
+      reader.readAsDataURL(file);
+      
+    }
+  }
+  
 }

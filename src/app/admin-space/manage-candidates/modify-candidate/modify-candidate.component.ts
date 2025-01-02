@@ -17,6 +17,9 @@ export class ModifyCandidateComponent implements OnInit {
     nom: '',
     prenom: '',
     email: '',
+    cin: 0,
+    mdp: '',
+    photo: undefined
   };
 
   constructor(
