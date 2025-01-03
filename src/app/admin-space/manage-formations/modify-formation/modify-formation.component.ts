@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ModifyFormationComponent implements OnInit {
   formation: Formation = {
-    id: null,
+    id: 0,
     titre: '',
     description: '',
     chargeHoraire: 0,

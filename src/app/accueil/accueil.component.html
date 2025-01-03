@@ -18,19 +18,31 @@
     <p>Nous offrons des formations dans les catégories suivantes :</p>
     <table class="table table-striped">
       <tr class="" >
-        <th>#</th>
-        <th>Titre</th>
-        <th>Description</th>
+        
+        
+        
       </tr>
     
-    <tr class="" *ngFor="let formation of formations; let i = index">
-      <th scope="row">{{ i + 1 }}</th>
-        <td>{{ formation.titre}}</td>
-        <td>{{ formation.description }}</td>
+    <tr class="" >
+      <th scope="row"></th>
+        
+        <td ></td>
         
         
     </tr></table>
-    
+<div class="card" >
+  <div class="card__title">Catégories</div>
+  <div class="card__data" *ngFor="let formation of formations; let i = index">
+    <div class="card__right">
+      
+      <div class="item">{{ i + 1 }}</div>
+    </div>
+    <div class="card__left">
+      <div class="item">{{ formation.titre }}</div>
+    </div>
+  </div>
+</div>
+
   </section>
 
   <section class="container mt-5">
