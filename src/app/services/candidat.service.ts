@@ -105,10 +105,17 @@ export class CandidatService {
   }
 
   addCandidat(candidat: candidat): Observable<candidat> {
+    
+    const maxId = this.candidats.length
+      ? Math.max(...this.candidats.map(c => c.id))
+      : 0;
+    candidat.id = candidat.id || maxId + 1;
+  
     this.candidats.push(candidat);
-    this.candidatesSubject.next([...this.candidats]); 
+    this.candidatesSubject.next([...this.candidats]);
     return of(candidat);
   }
+  
 
   deleteCandidat(id: number): Observable<void> {
     const index = this.candidats.findIndex((candidate) => candidate.id === id);

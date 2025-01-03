@@ -2,8 +2,13 @@
     <h1>Modifier le Candidat</h1>
   
     <form (ngSubmit)="onSubmit()" #candidateForm="ngForm">
-      <!-- Candidate ID (hidden) -->
+      
       <input type="hidden" [(ngModel)]="candidat.id" name="id">
+
+      <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom</label>
+        <input type="text" class="form-control" id="prenom" [(ngModel)]="candidat.cin" name="cin" required>
+      </div>
   
       <div class="mb-3">
         <label for="nom" class="form-label">Nom</label>
@@ -14,7 +19,15 @@
         <label for="prenom" class="form-label">Prénom</label>
         <input type="text" class="form-control" id="prenom" [(ngModel)]="candidat.prenom" name="prenom" required>
       </div>
-  
+      <div class="mb-3">
+        <label for="prenom" class="form-label">Mot de passe</label>
+        <input type="text" class="form-control" id="prenom" [(ngModel)]="candidat.mdp" name="mdp" required>
+      </div>
+      <div class="mb-3">
+        <label for="prenom" class="form-label">Photo</label>
+        <input type="file" class="form-control" id="prenom" [(ngModel)]="candidat.photo" name="photo" required>
+      </div>
+      
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" id="email" [(ngModel)]="candidat.email" name="email" required>

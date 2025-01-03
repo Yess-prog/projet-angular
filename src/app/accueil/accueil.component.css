@@ -1,7 +1,7 @@
 /* From Uiverse.io by Rodrypaladin */ 
 .card {
   width: 600px;
-  background: rgb(44, 44, 44);
+  background: #0F72A8;
   font-family: "Courier New", Courier, monospace;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
@@ -23,14 +23,14 @@
   font-size: 1rem;
   display: flex;
   justify-content: space-between;
-  border-right: 1px solid rgb(203, 203, 203);
-  border-left: 1px solid rgb(203, 203, 203);
-  border-bottom: 1px solid rgb(203, 203, 203);
+  border-right: 1px solid #0F72A8;
+  border-left: 1px solid #0F72A8;
+  border-bottom: 1px solid #0F72A8;
 }
 
 .card__right {
   width: 7%;
-  border-right: 1px solid rgb(203, 203, 203);
+  border-right: 1px solid #0F72A8;
 }
 
 .card__left {

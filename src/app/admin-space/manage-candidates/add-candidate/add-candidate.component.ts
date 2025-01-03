@@ -10,10 +10,15 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./add-candidate.component.css'],
   standalone: true,
   imports: [FormsModule],
+  
 })
+
+
+
 export class AddCandidateComponent {
+  
   candidate: candidat = {
-    id: null,
+    id: 0,
     nom: '',
     prenom: '',
     email: '',
@@ -24,8 +29,16 @@ export class AddCandidateComponent {
 
   constructor(private candidatService: CandidatService, private router: Router) {}
 
+  
+
   onSubmit(): void {
-    if (this.candidate.nom && this.candidate.prenom && this.candidate.email && this.candidate.cin && this.candidate.mdp) {
+    if (
+      this.candidate.nom &&
+      this.candidate.prenom &&
+      this.candidate.email &&
+      this.candidate.cin &&
+      this.candidate.mdp
+    ) {
       this.candidatService.addCandidat(this.candidate).subscribe(() => {
         console.log('Candidate added:', this.candidate);
         this.router.navigate(['/admin-space/manage-candidates']);
@@ -34,6 +47,7 @@ export class AddCandidateComponent {
       console.error('Please fill out all required fields.');
     }
   }
+  
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input?.files?.length) {
@@ -45,6 +59,11 @@ export class AddCandidateComponent {
       reader.readAsDataURL(file);
       
     }
+
+  }
+
+  candiateLength():number{
+    return this.candidatService.getCandidats.length;
   }
   
 }
