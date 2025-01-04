@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AddFormationComponent {
   formation: Formation = {
-    id: null,
+    id: 0,
     titre: '',
     description: '',
     chargeHoraire: 0,
@@ -30,4 +30,5 @@ export class AddFormationComponent {
       console.error('Please fill out all required fields.');
     }
   }
+ 
 }

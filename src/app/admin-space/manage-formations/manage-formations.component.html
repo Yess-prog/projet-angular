@@ -17,7 +17,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let formation of formations; let i = index">
-          <th scope="row">{{ i + 1 }}</th>
+          <th scope="row">{{ formation.id}}</th>
           <td>{{ formation.titre }}</td>
           <td>{{ formation.description }}</td>
           <td>{{ formation.chargeHoraire }} heures</td>

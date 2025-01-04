@@ -40,11 +40,11 @@ export class AddCandidateComponent {
       this.candidate.mdp
     ) {
       this.candidatService.addCandidat(this.candidate).subscribe(() => {
-        console.log('Candidate added:', this.candidate);
+        console.log('Candidat Ajouté:', this.candidate);
         this.router.navigate(['/admin-space/manage-candidates']);
       });
     } else {
-      console.error('Please fill out all required fields.');
+      console.error('ERR');
     }
   }
   

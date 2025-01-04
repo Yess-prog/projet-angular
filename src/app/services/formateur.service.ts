@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Trainer } from "../model/trainer";
-import { Observable, of } from "rxjs";
+import { BehaviorSubject, Observable, of } from "rxjs";
 
 @Injectable({
   providedIn: 'root',
@@ -52,9 +52,15 @@ export class TrainerService {
   getTrainerById(id: number): Observable<Trainer | undefined> {
     return of(this.trainers.find((trainer) => trainer.id === id));
   }
-
+private trainersSubject = new BehaviorSubject<Trainer[]>(this.trainers);
   addTrainer(trainer: Trainer): Observable<Trainer> {
+    const maxId = this.trainers.length
+      ? Math.max(...this.trainers.map(f => f.id))
+      : 0;
+    trainer.id = trainer.id || maxId + 1;
+  
     this.trainers.push(trainer);
+    this.trainersSubject.next([...this.trainers]);
     return of(trainer);
   }
 

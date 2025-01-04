@@ -28,9 +28,10 @@
         <td>
           <img *ngIf="trainer.photo" [src]="trainer.photo" alt="Trainer Photo" class="img-thumbnail" width="50" height="50">
           <span *ngIf="!trainer.photo">pas de Photo</span>
+          
         </td>
         <td>
-          <a *ngIf="trainer.cv" [href]="trainer.cv" target="_blank">Voir CV</a>
+          <a *ngIf="trainer.cv" [href]="getCvHref(trainer.cv)" target="_blank">Voir CV</a>
           <span *ngIf="!trainer.cv">pas de CV</span>
         </td>
         <td>

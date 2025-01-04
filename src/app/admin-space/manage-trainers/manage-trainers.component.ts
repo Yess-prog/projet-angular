@@ -3,6 +3,7 @@ import { TrainerService } from '../../services/formateur.service';
 import { Router, RouterLink } from '@angular/router';
 import { Trainer } from '../../model/trainer';
 import { NgFor, NgIf } from '@angular/common';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-manage-trainers',
@@ -13,7 +14,7 @@ import { NgFor, NgIf } from '@angular/common';
 export class ManageTrainersComponent implements OnInit {
   trainers: Trainer[] = [];
 
-  constructor(private trainerService: TrainerService, private router: Router) {}
+  constructor(private trainerService: TrainerService, private router: Router,private sanitizer : DomSanitizer ) {}
 
   ngOnInit(): void {
     this.fetchTrainers();
@@ -36,4 +37,22 @@ export class ManageTrainersComponent implements OnInit {
       }
     );
   }
+  getPhotoSrc(photo: File | null): SafeUrl|null {
+    if (!photo) {
+      return null;
+    } 
+    
+    const url = URL.createObjectURL(photo);
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+  }
+
+  
+  getCvHref(cv: File | null): SafeUrl | null {
+    if (!cv) {
+      return null; 
+    }
+    const url = URL.createObjectURL(cv);
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+  }
+  
 }

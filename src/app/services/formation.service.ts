@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Formation } from '../model/formation';
 
 @Injectable({
@@ -32,9 +32,15 @@ export class FormationService {
       console.error('Formation not found with ID:', id);
     }
   }
-
+private formationsSubject = new BehaviorSubject<Formation[]>(this.formations);
   addFormation(formation: Formation): Observable<Formation> {
+    const maxId = this.formations.length
+      ? Math.max(...this.formations.map(f => f.id))
+      : 0;
+    formation.id = formation.id || maxId + 1;
+  
     this.formations.push(formation);
+    this.formationsSubject.next([...this.formations]);
     return of(formation);
   }
 
